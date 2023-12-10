@@ -1,5 +1,7 @@
 package com.devsuperior.challenge3.dto;
 
+import com.devsuperior.challenge3.entities.Client;
+
 import java.time.LocalDate;
 
 public class ClientDTO {
@@ -18,6 +20,15 @@ public class ClientDTO {
         this.income = income;
         this.birthdate = birthdate;
         this.children = children;
+    }
+
+    public ClientDTO(Client entity) {
+        id = entity.getId();
+        name = entity.getName();
+        cpf = entity.getCpf();
+        income = entity.getIncome();
+        birthdate = entity.getBirthdate();
+        children = entity.getChildren();
     }
 
     public Long getId() {
