@@ -9,8 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Service
 public class ClientService {
 
@@ -41,6 +39,11 @@ public class ClientService {
         Client entity = repository.getReferenceById(id);
         copyToEntity(entity, dto);
         return new ClientDTO(repository.save(entity));
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        repository.deleteById(id);
     }
 
     private void copyToEntity(Client entity, ClientDTO dto) {
